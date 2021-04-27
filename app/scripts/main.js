@@ -84,10 +84,10 @@
 
 
   const createNewBaconImg = () => {
-    let newBaconImg = document.createElement('img')
-    newBaconImg.setAttribute('width', "100%")
-    newBaconImg.src = baconImgUrl
-    return newBaconImg
+    let newBaconImg = document.createElement('img');
+    newBaconImg.setAttribute('width', "100%");
+    newBaconImg.src = baconImgUrl;
+    return newBaconImg;
   };
   baconBtn.addEventListener('click', () => {
     containerForImg.append(createNewBaconImg())
