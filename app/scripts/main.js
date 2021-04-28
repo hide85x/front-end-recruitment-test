@@ -76,22 +76,122 @@
   }
 
   // Your custom JavaScript goes here
+
+  //TASK 2 Bacon
   const baconBtn = document.querySelector('.bacon-btn');
   const baconImg = document.querySelector('.bacon-img');
-  const baconImgUrl = document.querySelector('.bacon-img').src;
+  if (baconImg) {
+    const baconImgUrl = document.querySelector('.bacon-img').src;
 
-  let containerForImg = document.querySelector('.section--center');
+    let containerForImg = document.querySelector('.section--center');
 
 
-  const createNewBaconImg = () => {
-    let newBaconImg = document.createElement('img');
-    newBaconImg.setAttribute('width', "100%");
-    newBaconImg.src = baconImgUrl;
-    return newBaconImg;
+    const createNewBaconImg = () => {
+      let newBaconImg = document.createElement('img');
+      newBaconImg.setAttribute('width', "100%");
+      newBaconImg.src = baconImgUrl;
+      return newBaconImg;
+    };
+    baconBtn.addEventListener('click', () => {
+      containerForImg.append(createNewBaconImg())
+    });
+
+  }
+
+
+  //Task2 Validation
+
+
+
+  //regexs
+  const emailPattern = new RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
+  const postalCodePattern = new RegExp(/^\b\d{5}\b$/)
+  const textOnlyPattern = new RegExp(/[a-zA-Z]{2,20}$/)
+  const phonePattern = new RegExp(/\([0-9]{3}\)[0-9]{2}-[0-9]{2}-[0-9]{2}$/)
+  const cCardPattern= new RegExp(/^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$/)
+  const securityCodePattern= new RegExp(/^\d{3}$/)
+  const cardExpDatePattern= new RegExp(/^\d{2}\/\d{2}$/)
+  //form
+  let firstName = {
+    input: document.getElementById('firstName'),
+    regex: textOnlyPattern
   };
-  baconBtn.addEventListener('click', () => {
-    containerForImg.append(createNewBaconImg())
-  });
+  let lastName = {
+    input: document.getElementById('lastName'),
+    regex: textOnlyPattern
+  };
+  let email = {
+    input: document.getElementById('email'),
+    regex: emailPattern
+  };
+  let country = {
+    input: document.getElementById('country'),
+    regex: textOnlyPattern
+  }
+  let postalCode = {
+    input: document.getElementById('postalCode'),
+    regex: postalCodePattern
+  }
+  let phone = {
+    input: document.getElementById('phone'),
+    regex: phonePattern
+  }
+  let card = {
+    input:document.getElementById('cCard'),
+    regex: cCardPattern
+  }
+  let securityCode = {
+    input: document.getElementById('securityCode'),
+    regex: securityCodePattern
+  }
+  let cardExpDate = {
+    input:document.getElementById('cardExpiration'),
+    regex: cardExpDatePattern
+  }
 
+  const form = [firstName, lastName, email, country, postalCode, phone, card, securityCode, cardExpDate
+  ]
+
+
+  const allInputs = document.querySelectorAll('input')
+  allInputs.forEach(input => input.addEventListener('input', () => {
+    input.classList.remove('inputError')
+  }))
+  //btn & btn actions
+  let errorMsg = document.querySelector('.error')
+  let successMsg = document.querySelector('.success')
+
+  const closeModalBtn = document.querySelectorAll('.closeModal')
+  closeModalBtn.forEach(el => {
+    console.log(el)
+    el.addEventListener('click', () => {
+      console.log(successMsg)
+      console.log(errorMsg)
+      successMsg.classList.add('hidden')
+      errorMsg.classList.add('hidden')
+    })
+
+  })
+  const submitBtn = document.querySelector('.submitBtn')
+  console.log(submitBtn)
+  submitBtn.addEventListener('click', (event) => {
+    event.preventDefault()
+    form.forEach(input => {
+      validator(input)
+    })
+
+  })
+
+  function validator(objToValidtate) {
+    let isValid = objToValidtate.regex.exec(objToValidtate.input.value.trim())
+    if (isValid === null) {
+      objToValidtate.input.classList.add('inputError')
+      errorMsg.classList.remove('hidden')
+    }
+    if (isValid !== null) {
+      successMsg.classList.remove('hidden')
+
+    }
+  }
 
 })();

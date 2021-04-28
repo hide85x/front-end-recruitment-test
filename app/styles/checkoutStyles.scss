@@ -181,7 +181,7 @@ $submit-btn-color: #6BD400;
             padding: 0 10px;
             padding-bottom: 3px;
             font-size: 1.1rem;
-            width: 100%;
+            width: 90%;
             color: black;
             font-weight: 600;
           }
@@ -319,18 +319,20 @@ $submit-btn-color: #6BD400;
 
 .activeMsg {
   display: flex;
-  align-self: center;
-  vertical-align: middle;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  margin: auto;
   background: white;
   width: 400px;
   left: 35%;
-  top: 35%;
+  top: 25%;
   height: 200px;
   border-radius: 5px;
   z-index: 99;
+  text-align: center;
   box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.171);
+  z-index: 100;
 
   @media (max-width:900px) {
     top: 0;
@@ -339,15 +341,15 @@ $submit-btn-color: #6BD400;
   }
 
   .closeModal {
-    width: 30px;
-    height: 30px;
-    background: $main-bg-color;
+    border-radius: 0 0 5px 5px;
+    width: 100%;
+    background: white;
     border: none;
-    transition: filter 0.3s ease;
-    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    font-size: 1.3rem;
 
     &:hover {
-      filter: invert(1);
+      opacity: 0.7;
       cursor: pointer;
     }
   }
@@ -358,6 +360,12 @@ $submit-btn-color: #6BD400;
     margin: auto;
     font-size: 2rem;
   }
+}
+.inputError {
+  border-bottom: 2px solid  red !important;
+  width: 90% ;
+  margin: auto;
+  z-index: 99;
 }
 
 .error {

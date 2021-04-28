@@ -191,14 +191,15 @@
       <!--MY CHECKOUT CODE  -->
       <div class="mdl-layout__tab-panel" id="checkout">
 
-        <!-- <div class="activeMsg success">
+        <div class="activeMsg success hidden">
           <p> Form successfully submitted!</p>
-          <button class="closeModal">X</button>
+          <button class="closeModal">close</button>
         </div>
-        <div class="activeMsg error">
+        <div class="activeMsg error hidden">
           <p> Form got errors!</p>
-          <button class="closeModal">X</button>
-        </div> -->
+          <button class="closeModal">close</button>
+        </div>
+
         <section class="checkout">
           <div class="checkout__top">
             <div class="checkout__top__personal-info">
@@ -218,13 +219,13 @@
                   </div>
                   <div class="input-wrapper">
                     <label for="lastName">Last name</label>
-                    <input type="text" placeholder="Musk" name=lasttName">
+                    <input type="text" placeholder="Musk" id="lastName">
                   </div>
                 </div>
 
                 <div class="input-wrapper">
                   <label for="email">Email</label>
-                  <input type="text" name=email" placeholder="elon@spacex.com">
+                  <input type="text" id="email" placeholder="elon@spacex.com">
                 </div>
 
                 <div class="form__input input-container-row">
@@ -238,13 +239,13 @@
                   </div>
                   <div class="input-wrapper">
                     <label for="postalCode">Postal Code</label>
-                    <input type="text" name="postalCode" placeholder="10001">
+                    <input type="text" id="postalCode" placeholder="10001">
                   </div>
                 </div>
 
                 <div class="input-wrapper">
                   <label for="phone">Phone Number</label>
-                  <input type="text" name="phone" placeholder="(212) 69-93-92">
+                  <input type="text" id="phone" placeholder="(212) 69-93-92">
                 </div>
 
               </form>
@@ -305,21 +306,21 @@
 
                   <div class="input-wrapper">
                     <label for="CreditCard">Credit Card Number</label>
-                    <input type="text" name="CreditCard" placeholder="0000-0000-0000-0000">
+                    <input type="text" id="cCard" placeholder="0000-0000-0000-0000">
                     <img class="visaImg" src="./images/visaIcon.png" alt="">
                   </div>
 
                   <div class="form__input input-container-row">
                     <div class="input-wrapper">
                       <label for="securityCode">SecurityCode</label>
-                      <input type="password" name="securityCode" placeholder="***">
+                      <input type="password" id="securityCode" placeholder="***">
                       <span id="searchIcon" class="material-icons">
                         help_outline
                         </span>
                     </div>
                     <div class="input-wrapper">
-                      <label for="expirationDate">Expiration Date</label>
-                      <input type="" name="expirationDate" placeholder="MM / YY">
+                      <label >Expiration Date</label>
+                      <input type="" id="cardExpiration" placeholder="MM / YY">
                     </div>
                   </div>
                   <button class="submitBtn" type="button"> 
@@ -501,7 +502,7 @@
 
   <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
   <!-- build:js scripts/main.min.js -->
-  <script src="scripts/main.js"></script>
+  <script deffer src="scripts/main.js"></script>
   <!-- endbuild -->
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
