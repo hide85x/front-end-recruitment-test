@@ -82,10 +82,7 @@
   const baconImg = document.querySelector('.bacon-img');
   if (baconImg) {
     const baconImgUrl = document.querySelector('.bacon-img').src;
-
     let containerForImg = document.querySelector('.section--center');
-
-
     const createNewBaconImg = () => {
       let newBaconImg = document.createElement('img');
       newBaconImg.setAttribute('width', "100%");
@@ -95,22 +92,17 @@
     baconBtn.addEventListener('click', () => {
       containerForImg.append(createNewBaconImg())
     });
-
   }
 
-
   //Task2 Validation
-
-
-
   //regexs
   const emailPattern = new RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
   const postalCodePattern = new RegExp(/^\b\d{5}\b$/)
   const textOnlyPattern = new RegExp(/[a-zA-Z]{2,20}$/)
   const phonePattern = new RegExp(/\([0-9]{3}\)[0-9]{2}-[0-9]{2}-[0-9]{2}$/)
-  const cCardPattern= new RegExp(/^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$/)
-  const securityCodePattern= new RegExp(/^\d{3}$/)
-  const cardExpDatePattern= new RegExp(/^\d{2}\/\d{2}$/)
+  const cCardPattern = new RegExp(/^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$/)
+  const securityCodePattern = new RegExp(/^\d{3}$/)
+  const cardExpDatePattern = new RegExp(/^\d{2}\/\d{2}$/)
   //form
   let firstName = {
     input: document.getElementById('firstName'),
@@ -137,7 +129,7 @@
     regex: phonePattern
   }
   let card = {
-    input:document.getElementById('cCard'),
+    input: document.getElementById('cCard'),
     regex: cCardPattern
   }
   let securityCode = {
@@ -145,13 +137,12 @@
     regex: securityCodePattern
   }
   let cardExpDate = {
-    input:document.getElementById('cardExpiration'),
+    input: document.getElementById('cardExpiration'),
     regex: cardExpDatePattern
   }
 
   const form = [firstName, lastName, email, country, postalCode, phone, card, securityCode, cardExpDate
   ]
-
 
   const allInputs = document.querySelectorAll('input')
   allInputs.forEach(input => input.addEventListener('input', () => {
@@ -179,7 +170,6 @@
     form.forEach(input => {
       validator(input)
     })
-
   })
 
   function validator(objToValidtate) {
@@ -190,7 +180,6 @@
     }
     if (isValid !== null) {
       successMsg.classList.remove('hidden')
-
     }
   }
 
